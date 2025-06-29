@@ -107,12 +107,12 @@ const FFTW_NTHREADS = Ref{Int}(known(num_cores()))
         end
 
         ccall(
-            (:fftw_threads_set_callback,  FFTW.libfftw3[]),
+            (:fftw_threads_set_callback,  FFTW.libfftw3()),
             Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}), cspawnloop, C_NULL
         )
 
         ccall(
-            (:fftwf_threads_set_callback, FFTW.libfftw3f[]),
+            (:fftwf_threads_set_callback, FFTW.libfftw3f()),
             Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}), cspawnloop, C_NULL
         )
 
